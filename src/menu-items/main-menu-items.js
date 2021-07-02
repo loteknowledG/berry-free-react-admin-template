@@ -3,6 +3,7 @@ import {FormattedMessage} from 'react-intl';
 
 import {
     IconAtom,
+    IconArrowRight,
     IconBasket,
     IconBellRinging,
     IconBorderAll,
@@ -21,6 +22,7 @@ import {
     IconClipboardList,
     IconDashboard,
     IconDeviceAnalytics,
+    IconFileImport,
     IconFiles,
     IconForms,
     IconHelp,
@@ -43,6 +45,7 @@ import {
     IconShape,
     IconShieldLock,
     IconSitemap,
+    IconTableImport,
     IconTools,
     IconTypography,
     IconUser,
@@ -50,13 +53,14 @@ import {
 } from '@tabler/icons';
 
 const icons = {
+    IconArrowRight: IconArrowRight,
     IconDashboard: IconDashboard,
     IconDeviceAnalytics,
 
     IconChartArcs: IconChartArcs,
     IconClipboardList: IconClipboardList,
     IconChartInfographic: IconChartInfographic,
-
+    IconFileImport: IconFileImport,
     IconForms: IconForms,
     IconReceipt2: IconReceipt2,
     IconPencil: IconPencil,
@@ -96,119 +100,93 @@ const icons = {
     IconBellRinging: IconBellRinging,
     IconBorderAll: IconBorderAll,
     IconChartCandle: IconChartCandle,
-    IconBasket: IconBasket
+    IconBasket: IconBasket,
+    IconTableImport: IconTableImport
 };
 
 const menuItems = {
-    items: [
-        {
-            id: 'dashboard',
-            title: <FormattedMessage id="dashboard" />,
-            type: 'group',
-            children: [
-                {
-                    id: 'dash-default',
-                    title: <FormattedMessage id="default" />,
-                    type: 'item',
-                    url: '/dashboard/default',
-                    icon: icons['IconDashboard'],
-                    breadcrumbs: false
-                }
-            ]
-        },
-
-        {
-            id: 'pages',
-            title: <FormattedMessage id="pages" />,
-            caption: <FormattedMessage id="pages-caption" />,
-            type: 'group',
-            children: [
-                {
-                    id: 'authentication',
-                    title: <FormattedMessage id="authentication" />,
-                    type: 'collapse',
-                    icon: icons['IconKey'],
-                    children: [
-
-
-
-
-                                {
-                                    id: 'login3',
-                                    title: <FormattedMessage id="login" />,
-                                    type: 'item',
-                                    url: '/pages/login/login3',
-                                    target: true
-                                },
-                                {
-                                    id: 'register3',
-                                    title: <FormattedMessage id="register" />,
-                                    type: 'item',
-                                    url: '/pages/register/register3',
-                                    target: true
-                                }
-
-
-
-
-
-
-                    ]
-                },
-
-
-
-            ]
-        },
-        {
-            id: 'utilities',
-            title: <FormattedMessage id="utilities" />,
-            type: 'group',
-            children: [
-                {
-                    id: 'util-typography',
-                    title: <FormattedMessage id="typography" />,
-                    type: 'item',
-                    url: '/utils/util-typography',
-                    icon: icons['IconTypography']
-                },
-                {
-                    id: 'color',
-                    title: <FormattedMessage id="color" />,
-                    type: 'item',
-                    url: '/utils/util-color',
-                    icon: icons['IconPalette']
-                },
-                {
-                    id: 'shadow',
-                    title: <FormattedMessage id="shadow" />,
-                    type: 'item',
-                    url: '/utils/util-shadow',
-                    icon: icons['IconShadow']
-                },
-                {
-                    id: 'icons',
-                    title: <FormattedMessage id="icons" />,
-                    type: 'collapse',
-                    icon: icons['IconPencil'],
-                    children: [
-                        {
-                            id: 'util-tabler-icons',
-                            title: <FormattedMessage id="tabler-icons" />,
-                            type: 'item',
-                            url: '/icons/tabler-icons'
-                        },
-                        {
-                            id: 'util-material-icons',
-                            title: <FormattedMessage id="material-icons" />,
-                            type: 'item',
-                            url: '/icons/material-icons'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
+    items: [{
+        id: 'dashboard',
+        title: <FormattedMessage id="dashboard" />,
+        type: 'group',
+        children: [{
+            id: 'dash-default',
+            title: <FormattedMessage id="default" />,
+            type: 'item',
+            url: '/dashboard/default',
+            icon: icons['IconDashboard'],
+            breadcrumbs: false
+        }]
+    }, {
+        id: 'pages',
+        title: <FormattedMessage id="pages" />,
+        caption: <FormattedMessage id="pages-caption" />,
+        type: 'group',
+        children: [{
+            id: 'authentication',
+            title: <FormattedMessage id="authentication" />,
+            type: 'collapse',
+            icon: icons['IconKey'],
+            children: [{
+                id: 'login3',
+                title: <FormattedMessage id="login" />,
+                type: 'item',
+                url: '/pages/login/login3',
+                target: true
+            }, {
+                id: 'register3',
+                title: <FormattedMessage id="register" />,
+                type: 'item',
+                url: '/pages/register/register3',
+                target: true
+            }]
+        }]
+    }, {
+        id: 'utilities',
+        title: <FormattedMessage id="utilities" />,
+        type: 'group',
+        children: [{
+            id: 'util-typography',
+            title: <FormattedMessage id="typography" />,
+            type: 'item',
+            url: '/utils/util-typography',
+            icon: icons['IconTypography']
+        }, {
+            id: 'color',
+            title: <FormattedMessage id="color" />,
+            type: 'item',
+            url: '/utils/util-color',
+            icon: icons['IconPalette']
+        }, {
+            id: 'shadow',
+            title: <FormattedMessage id="shadow" />,
+            type: 'item',
+            url: '/utils/util-shadow',
+            icon: icons['IconShadow']
+        }, {
+            id: 'icons',
+            title: <FormattedMessage id="icons" />,
+            type: 'collapse',
+            icon: icons['IconPencil'],
+            children: [ {
+                id: 'util-tabler-icons',
+                title: <FormattedMessage id="tabler-icons" />,
+                type: 'item',
+                url: '/icons/tabler-icons'
+            }, {
+                id: 'util-material-icons',
+                title: <FormattedMessage id="material-icons" />,
+                type: 'item',
+                url: '/icons/material-icons'
+            }]
+        }, {
+            id: 'Inload',
+            title: <FormattedMessage id="Inload" />,
+            type: 'item',
+            url: '/utils/util-inload',
+            icon: icons['IconTableImport']
+        }]
+    }, {
             id: 'sample-docs-roadmap',
             type: 'group',
             children: [
